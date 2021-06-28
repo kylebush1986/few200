@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TodoListItemViewModel } from 'src/app/models/todos.models';
 
 @Component({
@@ -8,10 +8,7 @@ import { TodoListItemViewModel } from 'src/app/models/todos.models';
 })
 export class ListComponent implements OnInit {
 
-  items: TodoListItemViewModel[] = [
-    { id: '1', description: 'Rake Leaves' },
-    { id: '2', description: 'Wash Deck' }
-  ];
+  @Input() items!: TodoListItemViewModel[] | null;
 
   constructor() { }
 

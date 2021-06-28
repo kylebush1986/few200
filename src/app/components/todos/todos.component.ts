@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TodoListItemViewModel } from 'src/app/models/todos.models';
+import { TodosDataService } from 'src/app/services/todos-data.service';
 
 @Component({
   selector: 'app-todos',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  todoList$!: Observable<TodoListItemViewModel[]>;
+
+  constructor(private service: TodosDataService) { }
 
   ngOnInit(): void {
+    this.todoList$ = this.service.getData();
   }
 
+  onItemAdded(thing: { item: string }) {
+    this.service.addTodoItem({ description: thing.item });
+  }
 }

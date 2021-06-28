@@ -9,6 +9,11 @@ import { TodosComponent } from './components/todos/todos.component';
 import { ListComponent } from './components/todos/components/list/list.component';
 import { EntryComponent } from './components/todos/components/entry/entry.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TodosDataService } from './services/todos-data.service';
+import { CounterComponent } from './components/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     TodosComponent,
     ListComponent,
-    EntryComponent
+    EntryComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
-  providers: [],
+  providers: [
+    TodosDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
