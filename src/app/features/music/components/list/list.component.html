@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="card"
+     *ngFor="let song of songs$ | async">
+  <div class="card-header">
+    {{song.title}}
+  </div>
+  <div class="card-body">
+    The song {{song.title}} is by {{song.artist}}. It is on the album {{song.album}}.
+  </div>
+</div>

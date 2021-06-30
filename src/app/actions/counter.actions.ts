@@ -5,6 +5,6 @@ export const countDecremented = createAction('[app counter event] count was decr
 export const countReset = createAction('[app counter event] the count was reset');
 
 export const countBySet = createAction(
-  '[app counter event] count by set',
+  '[app counter event] count-by set',
   props<{ by: number }>()
 );
