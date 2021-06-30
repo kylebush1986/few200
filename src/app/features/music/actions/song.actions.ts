@@ -13,3 +13,26 @@ export const loadSongsSucceeded = createAction(
 );
 
 // failure
+
+// we need to add a song.
+
+export const songCreated = createAction(
+  '[music] song created',
+  props<{ payload: NewSongInfo }>()
+);
+
+export const tempSongCreated = createAction(
+  '[music] temp song created',
+  props<{ payload: SongEntity }>()
+);
+
+export const songAdded = createAction(
+  '[music] song added from api',
+  props<{ tempId: string, payload: SongEntity }>()
+);
+
+interface NewSongInfo {
+  title: string;
+  artist: string;
+  album: string;
+}

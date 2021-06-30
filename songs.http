@@ -1,0 +1,17 @@
+### Getting some stuff
+GET http://localhost:3000/songs
+Accept: application/json
+
+### Adding a Song
+POST http://localhost:3000/songs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "I Got You (I Feel Good)",
+  "artist": "James Brown",
+  "album": "James Brown's Greatest Hits"
+}
+
+### Removing a Song
+DELETE http://localhost:3000/songs/60dcb8fc80bde72a48571b91

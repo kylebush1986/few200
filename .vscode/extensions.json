@@ -3,6 +3,7 @@
         "angular.ng-template",
         "editorconfig.editorconfig",
         "dbaeumer.vscode-eslint",
-        "ecmel.vscode-html-css"
+        "ecmel.vscode-html-css",
+        "humao.rest-client"
     ]
 }
