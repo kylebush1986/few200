@@ -19,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { CounterEffects } from './effects/counter.effects';
 import { MusicModule } from './features/music/music.module';
+import { LibraryModule } from './features/library/library.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MusicModule } from './features/music/music.module';
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([AppEffects, CounterEffects]),
     MusicModule,
+    LibraryModule,
     AppRoutingModule,
   ],
   providers: [

@@ -1,0 +1,9 @@
+<div class="card"
+     *ngFor="let item of items$ | async">
+  <div class="card-header">
+    {{item.title}}
+  </div>
+  <div class="card-body">
+    {{item.format}}
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<h2>Library</h2>
+<section class="row">
+
+  <nav class="col-3">
+    <ul class="nav nav-pills flex-column">
+
+      <li class="nav-item">
+        <a class="nav-link"
+           [routerLink]="['library-list']"
+           [routerLinkActive]="['active']">List of Items in Library</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+           [routerLink]="['library-entry']"
+           [routerLinkActive]="['active']">Add a New Item to Library</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</section>
