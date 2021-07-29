@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LibraryItem } from '../../models';
+import { selectLibraryItems } from '../../reducers';
 
 @Component({
   selector: 'app-library-list',
