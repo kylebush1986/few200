@@ -1,8 +1,9 @@
 import { createAction, props } from "@ngrx/store";
-import { ItemEntity } from "../reducers/library.reducer";
+import { LibraryListItem } from "../models";
+import { ItemEntity } from "../reducers/items.reducer";
 
 export const loadItems = createAction(
-  '[library] load library items'
+  '[library] load items'
 );
 
 export const loadItemsSucceeded = createAction(
@@ -10,6 +11,14 @@ export const loadItemsSucceeded = createAction(
   props<{ payload: ItemEntity[] }>()
 );
 
-export const loadItemFailed = createAction(
-  '[library] loading the items failed'
-)
+// export const addItem = createAction(
+//   '[library] add library item',
+//   props<{ item: LibraryListItem }>()
+// );
+
+// export const removeItem = createAction(
+//   '[library] remove library item',
+//   props<{ itemId: string }>()
+// );
+
+

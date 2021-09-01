@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { LibraryItem } from '../../models';
-import { selectLibraryItems } from '../../reducers';
+import { LibraryListItem } from '../../models';
+import { LibraryState, selectAllItems } from '../../reducers';
 
 @Component({
   selector: 'app-library-list',
@@ -10,11 +10,11 @@ import { selectLibraryItems } from '../../reducers';
   styleUrls: ['./library-list.component.css']
 })
 export class LibraryListComponent implements OnInit {
-  items$!: Observable<LibraryItem[]>
-  constructor(private store: Store) { }
+  items$!: Observable<LibraryListItem[]>
+  constructor(private store: Store<LibraryState>) { }
 
   ngOnInit(): void {
-    this.items$ = this.store.select(selectLibraryItems);
+    this.items$ = this.store.select(selectAllItems);
   }
 
 }

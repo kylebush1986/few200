@@ -1,27 +1,28 @@
-import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
-import { LibraryItem } from '../models';
-import * as fromLibrary from './library.reducer';
+import { ActionReducerMap, createFeatureSelector, createSelector } from "@ngrx/store"
+import { MusicState } from "../../music/reducers"
+import { LibraryListItem } from "../models"
+import * as fromItems from "./items.reducer"
 
-export const featureName = 'libraryFeature';
+export const featureName = 'libraryFeature'
 
 export interface LibraryState {
-  items: fromLibrary.ItemState
+  items: fromItems.LibraryState
 }
 
 export const reducers: ActionReducerMap<LibraryState> = {
-  items: fromLibrary.reducer
+  items: fromItems.reducer
 }
 
-export const selectFeature = createFeatureSelector<LibraryState>(featureName);
+const selectFeature = createFeatureSelector<LibraryState>(featureName)
 
 const selectLibraryBranch = createSelector(
   selectFeature,
   f => f.items
-)
+);
 
-const { selectAll: selectAllItemArray } = fromLibrary.adapter.getSelectors(selectLibraryBranch);
+const { selectAll: selectAllItemsArray } = fromItems.adapter.getSelectors(selectLibraryBranch)
 
-export const selectLibraryItems = createSelector(
-  selectAllItemArray,
-  i => i as LibraryItem[]
+export const selectAllItems = createSelector(
+  selectAllItemsArray,
+  s => s as LibraryListItem[]
 )

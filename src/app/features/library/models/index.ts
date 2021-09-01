@@ -1,5 +1,5 @@
-export interface LibraryItem {
-  _id: string;
+export interface LibraryListItem {
+  id: string;
   title: string;
   format: string;
   isCheckedOut: boolean;
