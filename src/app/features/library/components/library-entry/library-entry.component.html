@@ -1,1 +1,32 @@
-<p>library-entry works!</p>
+<form [formGroup]="form"
+      (ngSubmit)="submit(focus)">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text"
+           class="form-control"
+           name="title"
+           #focus
+           autofocus
+           formControlName="title">
+    <div class="alert alert-danger"
+         *ngIf="title?.errors && (title?.touched || title?.dirty)">
+      <p>This is required</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="format">Format</label>
+    <input type="text"
+           class="form-control"
+           name="format"
+           formControlName="format">
+    <div class="alert alert-danger"
+         *ngIf="format?.errors && (format?.touched || format?.dirty)">
+      <p>This is required</p>
+    </div>
+  </div>
+
+  <button type="submit"
+          class="btn btn-primary">
+    Add Item
+  </button>
+</form>

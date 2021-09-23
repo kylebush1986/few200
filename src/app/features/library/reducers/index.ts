@@ -26,3 +26,13 @@ export const selectAllItems = createSelector(
   selectAllItemsArray,
   s => s as LibraryListItem[]
 )
+
+export const selectCheckedOut = createSelector(
+  selectAllItems,
+  s => s.filter(i => i.isCheckedOut == true) as LibraryListItem[]
+)
+
+export const selectCheckedIn = createSelector(
+  selectAllItems,
+  s => s.filter(i => i.isCheckedOut == false) as LibraryListItem[]
+)

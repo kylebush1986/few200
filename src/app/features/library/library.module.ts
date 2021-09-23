@@ -10,6 +10,7 @@ import { AppEffects } from './effects/app.effects';
 import { LibraryDataService } from './services/library-data.service';
 import { featureName, reducers } from './reducers';
 import { LibraryEffects } from './effects/library.effects';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
-    EffectsModule.forFeature([AppEffects, LibraryEffects])
+    EffectsModule.forFeature([AppEffects, LibraryEffects]),
+    ReactiveFormsModule
   ],
   providers: [LibraryDataService]
 })

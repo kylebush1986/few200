@@ -8,21 +8,30 @@
   </button>
   <ul class="dropdown-menu dropdown-menu-dark"
       aria-labelledby="filterDropdown">
-    <li><a class="dropdown-item active">Show All</a></li>
-    <li><a class="dropdown-item">Show Checked In</a></li>
-    <li><a class="dropdown-item">Show Checked Out</a></li>
+    <li><a class="dropdown-item"
+         (click)="showAll()">Show All</a></li>
+    <li><a class="dropdown-item"
+         (click)="showCheckedIn()">Show Checked In</a></li>
+    <li><a class="dropdown-item"
+         (click)="showCheckedOut()">Show Checked Out</a></li>
   </ul>
 </div>
 
-<ul class="list-group">
+<ul class="
+         list-group
+         mt-2">
   <li class="list-group-item d-flex justify-content-between align-items-start"
       *ngFor="let item of items$ | async">
     <div class="ms-2 me-auto">
       <div class="fw-bold">{{item.title}}</div>
       {{item.format}}
     </div>
-    <input class="form-check-input me-1"
-           [checked]="item.isCheckedOut"
-           type="checkbox">
+    <div>
+      <div class="fw-bold">Checked Out</div>
+      <input class="form-check-input ml-5"
+             [checked]="item.isCheckedOut"
+             (change)="onChecked(item)"
+             type="checkbox">
+    </div>
   </li>
 </ul>

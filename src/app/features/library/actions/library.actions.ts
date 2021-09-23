@@ -16,9 +16,27 @@ export const loadItemsSucceeded = createAction(
 //   props<{ item: LibraryListItem }>()
 // );
 
-// export const removeItem = createAction(
-//   '[library] remove library item',
-//   props<{ itemId: string }>()
-// );
+export const itemCreated = createAction(
+  '[library] item created',
+  props<{ payload: NewItemInfo }>()
+);
 
+export const itemAdded = createAction(
+  '[library] item added',
+  props<{ tempId: string, payload: ItemEntity }>()
+)
 
+export const itemCheckedOut = createAction(
+  '[library] item checked out',
+  props<{ id: string }>()
+)
+
+export const itemCheckedIn = createAction(
+  '[library] item checked in',
+  props<{ id: string }>()
+)
+
+interface NewItemInfo {
+  title: string;
+  format: string;
+}
